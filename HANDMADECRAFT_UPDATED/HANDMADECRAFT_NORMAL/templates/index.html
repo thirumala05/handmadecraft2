@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HandmadeCraft - thoughtfully made artisan goods for your home and gifting.">
+    <title>HandmadeCraft | Made slowly. Loved longer.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-row">
+            <a class="brand" href="/" aria-label="HandmadeCraft home">
+                <span class="brand-mark">HC</span>
+                <span>
+                    <strong>HandmadeCraft</strong>
+                    <small>Made by hand</small>
+                </span>
+            </a>
+
+            <div class="search-wrap">
+                <span aria-hidden="true">⌕</span>
+                <input id="searchInput" type="search" placeholder="Search pottery, candles, gifts..." autocomplete="off">
+            </div>
+
+            <nav class="header-actions" aria-label="Main navigation">
+                <a class="catalog-link" href="#catalog" aria-label="Browse catalog">Catalog</a>
+                <button class="ghost-btn" id="authButton" type="button">
+                    <span aria-hidden="true">◯</span>
+                    <span id="authButtonText">Sign in</span>
+                </button>
+                <button class="cart-btn" id="cartButton" type="button">
+                    <span aria-hidden="true">Bag</span>
+                    <b id="cartCount">0</b>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <span class="eyebrow">Independent makers · Small batches</span>
+                    <h1>Objects with a story, made for everyday life.</h1>
+                    <p>Discover handmade decor, pottery and gifts created with care. Every piece is intentionally made, never mass-produced.</p>
+                    <div class="hero-actions">
+                        <button class="primary-btn" id="shopNowButton" type="button">Explore the collection</button>
+                        <span class="hero-note">Free delivery above ₹499</span>
+                    </div>
+                    <div class="hero-stats">
+                        <div><strong>4.8/5</strong><span>average rating</span></div>
+                        <div><strong>100%</strong><span>handmade focus</span></div>
+                        <div><strong>Secure</strong><span>account checkout</span></div>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-label="Handmade pottery collection">
+                    <img src="{{ url_for('static', filename='image/girija.jpeg') }}" alt="Handmade clay vase">
+                    <div class="floating-card floating-card-top">
+                        <span>New drop</span>
+                        <strong>Earth & Ember</strong>
+                    </div>
+                    <div class="floating-card floating-card-bottom">
+                        <span>From</span>
+                        <strong>₹299</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-strip" aria-label="Store benefits">
+            <div class="container trust-grid">
+                <div><span>✦</span><p><strong>Made by artisans</strong><small>Thoughtful, small-batch pieces</small></p></div>
+                <div><span>↻</span><p><strong>Simple returns</strong><small>Shop with confidence</small></p></div>
+                <div><span>⌂</span><p><strong>Carefully packed</strong><small>Designed to arrive beautifully</small></p></div>
+            </div>
+        </section>
+
+        <section class="collection-section container" id="products">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">Curated for you</span>
+                    <h2>Handmade favourites</h2>
+                    <p>Browse current products loaded directly from the database.</p>
+                </div>
+                <label class="sort-control">
+                    <span>Sort</span>
+                    <select id="sortFilter">
+                        <option value="featured">Featured</option>
+                        <option value="low">Price: low to high</option>
+                        <option value="high">Price: high to low</option>
+                        <option value="rating">Highest rated</option>
+                        <option value="discount">Best discount</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="category-row" id="categoryRow"></div>
+            <div class="product-grid" id="productContainer" aria-live="polite"></div>
+        </section>
+
+        <section class="story-section">
+            <div class="container story-grid">
+                <div class="story-image">
+                    <img src="{{ url_for('static', filename='image/thirumala.jpeg') }}" alt="Handcrafted candle">
+                </div>
+                <div class="story-copy">
+                    <span class="eyebrow">Why handmade?</span>
+                    <h2>Fewer things. Better stories.</h2>
+                    <p>Handmade pieces carry the maker's touch—small variations, considered details and materials chosen with intention. That is what makes them personal.</p>
+                    <div class="story-points">
+                        <div><b>01</b><span><strong>Human-made</strong><small>Craft before volume.</small></span></div>
+                        <div><b>02</b><span><strong>Purposeful</strong><small>Useful pieces with character.</small></span></div>
+                        <div><b>03</b><span><strong>Giftable</strong><small>Easy to give, lovely to keep.</small></span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <a class="brand footer-brand" href="/">
+                    <span class="brand-mark">HC</span>
+                    <span><strong>HandmadeCraft</strong><small>Made by hand</small></span>
+                </a>
+                <p>Thoughtful artisan goods for warmer homes and better gifting.</p>
+            </div>
+            <div>
+                <strong>Shop</strong>
+                <a href="#products">New arrivals</a>
+                <a href="#products">Home decor</a>
+                <a href="#products">Gifts</a>
+            </div>
+            <div>
+                <strong>Support</strong>
+                <span>Secure checkout</span>
+                <span>Careful packaging</span>
+                <span>Simple returns</span>
+            </div>
+            <div class="footer-contact">
+                <strong>Contact Us</strong>
+                <a href="tel:9876543210">Phone: 9876543210</a>
+                <a href="mailto:nandushetty156@gmail.com">Email: nandushetty156@gmail.com</a>
+                <span>Address: H D Kote Taluk,<br>Mysore District,<br>Kalasuru</span>
+            </div>
+        </div>
+        <div class="container footer-bottom">© 2026 HandmadeCraft. Crafted with care.</div>
+    </footer>
+
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+        <div class="drawer-header">
+            <div><span class="eyebrow">Your selection</span><h2>Shopping bag</h2></div>
+            <button class="icon-btn" id="closeCartButton" type="button" aria-label="Close cart">×</button>
+        </div>
+        <div class="drawer-body" id="cartContainer"></div>
+        <div class="drawer-footer">
+            <div class="cart-total-row"><span>Subtotal</span><strong id="cartTotal">₹0</strong></div>
+            <small>Shipping is calculated at checkout.</small>
+            <button class="primary-btn full-width" id="checkoutButton" type="button">Checkout</button>
+        </div>
+    </aside>
+
+    <div class="modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <div class="modal-card auth-card">
+            <button class="icon-btn modal-close" type="button" data-close-modal aria-label="Close">×</button>
+            <div class="auth-intro">
+                <span class="eyebrow">Welcome</span>
+                <h2 id="authTitle">Your handmade account</h2>
+                <p>Your account and cart are stored in the database—no hard-coded users.</p>
+            </div>
+            <div class="auth-tabs">
+                <button type="button" class="auth-tab active" data-auth-mode="login">Sign in</button>
+                <button type="button" class="auth-tab" data-auth-mode="register">Create account</button>
+            </div>
+
+            <form id="loginForm" class="form-stack">
+                <label>Email<input type="email" name="email" required autocomplete="email" placeholder="you@example.com"></label>
+                <label>Password<input type="password" name="password" required autocomplete="current-password" placeholder="Your password"></label>
+                <button class="primary-btn full-width" type="submit">Sign in</button>
+            </form>
+
+            <form id="registerForm" class="form-stack hidden">
+                <label>Name<input type="text" name="name" minlength="2" required autocomplete="name" placeholder="Your name"></label>
+                <label>Email<input type="email" name="email" required autocomplete="email" placeholder="you@example.com"></label>
+                <label>Password<input type="password" name="password" minlength="8" required autocomplete="new-password" placeholder="At least 8 characters"></label>
+                <button class="primary-btn full-width" type="submit">Create account</button>
+            </form>
+            <p class="form-message" id="authMessage"></p>
+        </div>
+    </div>
+
+    <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-label="Product details">
+        <div class="modal-card product-modal-card" id="productModalContent"></div>
+    </div>
+
+    <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+        <div class="modal-card checkout-card">
+            <button class="icon-btn modal-close" type="button" data-close-modal aria-label="Close">×</button>
+            <span class="eyebrow">Final step</span>
+            <h2 id="checkoutTitle">Delivery details</h2>
+            <p>We will use your signed-in account for the order and save the order to the database.</p>
+            <form id="checkoutForm" class="form-stack">
+                <label>Phone<input type="tel" name="phone" required placeholder="+91 98765 43210"></label>
+                <label>Delivery address<textarea name="address" rows="4" required placeholder="House / street, area, city, state and PIN code"></textarea></label>
+                <button class="primary-btn full-width" type="submit">Place order</button>
+            </form>
+            <p class="form-message" id="checkoutMessage"></p>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        window.INITIAL_USER = {{ user|tojson }};
+        window.STATIC_IMAGE_BASE = {{ url_for('static', filename='image/')|tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
